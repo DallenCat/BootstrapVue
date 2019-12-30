@@ -1,13 +1,26 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+    <Navbar :navs="navs" :nav-active="nav_active"/>
     <router-view/>
   </div>
 </template>
-
+<script>
+import Navbar from '@/components/Navbar.vue'
+export default {
+  components:{
+    Navbar
+  },
+  data() {
+    return {
+      nav_active:0,
+      navs : [
+        {title:'首页',path:'/'},
+        {title:'文章',path:'/about'}
+      ]
+    }
+  }
+}
+</script>
 <style lang="scss">
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
